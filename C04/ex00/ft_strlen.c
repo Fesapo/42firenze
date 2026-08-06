@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fesapori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/14 17:36:06 by fesapori          #+#    #+#             */
-/*   Updated: 2026/07/16 17:52:04 by fesapori         ###   ########.fr       */
+/*   Created: 2026/07/29 17:40:48 by fesapori          #+#    #+#             */
+/*   Updated: 2026/07/29 17:42:13 by fesapori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+//#include <stdio.h>
 
-void	ft_print_alphabet(void)
+int	ft_strlen(char *str)
 {
-	char	c;
+	int	i;
 
-	c = 'a';
-	while (c <= 'z')
-	{
-		write(1, &c, 1);
-		c++;
-	}
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }
-
-/*int main()
+/*
+int 	main(int argc, char *argv[])
 {
-        ft_print_alphabet();
-}*/
+	if(argc != 2)
+		printf("non ha detto niente");
+	else
+	{	
+		printf("%s\n", argv[1]);
+		int	result = ft_strlen(argv[1]);
+		printf("%d\n", result);
+	}
+	return 0;
+}
+*/

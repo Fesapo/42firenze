@@ -6,7 +6,7 @@
 /*   By: fesapori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/14 17:17:48 by fesapori          #+#    #+#             */
-/*   Updated: 2026/07/15 14:47:24 by fesapori         ###   ########.fr       */
+/*   Updated: 2026/07/16 17:52:43 by fesapori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-int main()
+/*int main()
 {
-	ft_putchar('A');
-}
+        ft_putchar('a');
+}*/

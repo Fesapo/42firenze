@@ -1,30 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fesapori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/14 17:36:06 by fesapori          #+#    #+#             */
-/*   Updated: 2026/07/16 17:52:04 by fesapori         ###   ########.fr       */
+/*   Created: 2026/08/05 17:46:15 by fesapori          #+#    #+#             */
+/*   Updated: 2026/08/05 17:59:52 by fesapori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_alphabet(void)
+int	ft_find_next_prime(int nb)
 {
-	char	c;
+	int	i;
 
-	c = 'a';
-	while (c <= 'z')
+	i = nb - 1;
+	if (nb < 0 || nb == 0 || nb == 1)
+		return (2);
+	while (1)
 	{
-		write(1, &c, 1);
-		c++;
+		while (i > 1 && (nb % i) != 0)
+			i--;
+		if (i == 1)
+			return (nb);
+		nb++;
 	}
 }
-
-/*int main()
+/*
+#include <stdio.h>
+#include <stdlib.h>
+int	main(int ac, char **av)
 {
-        ft_print_alphabet();
-}*/
+	if (ac != 2)
+		printf("variabili sbagliate");
+	else
+	{
+		int nb = atoi(av[1]);
+		int res = ft_find_next_prime(nb);
+		printf("%d\n", res);
+	}
+}
+*/

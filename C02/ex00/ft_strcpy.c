@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fesapori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/14 17:36:06 by fesapori          #+#    #+#             */
-/*   Updated: 2026/07/16 17:52:04 by fesapori         ###   ########.fr       */
+/*   Created: 2026/07/21 11:49:42 by fesapori          #+#    #+#             */
+/*   Updated: 2026/07/21 11:49:46 by fesapori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
-
-void	ft_print_alphabet(void)
+char	*ft_strcpy(char *dest, char *src)
 {
-	char	c;
+	int	i;
 
-	c = 'a';
-	while (c <= 'z')
+	i = 0;
+	while (src[i] != '\0')
 	{
-		write(1, &c, 1);
-		c++;
+		dest[i] = src[i];
+		i++;
 	}
+	dest[i] = '\0';
+	return (dest);
 }
-
-/*int main()
+/*
+#include <stdio.h>
+int	main()
 {
-        ft_print_alphabet();
-}*/
+	char	*src = "Ciao";
+	char	dest[100];
+	printf("%s \n", src);
+	ft_strcpy(dest, src);
+	printf("%s", dest);
+}
+*/

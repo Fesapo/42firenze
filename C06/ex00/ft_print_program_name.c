@@ -16,11 +16,14 @@ int	main(int argc, char **argv)
 {
 	char	*prog;
 
-	prog = argv[0];
-	while (*prog != '\0')
+	if (argv > 1)
 	{
-		write(1, prog, 1);
-		prog++;
+		prog = argv[0];
+		while (*prog != '\0')
+		{
+			write(1, prog, 1);
+			prog++;
+		}
+		write(1, "\n", 1);
 	}
-	write(1, "\n", 1);
 }

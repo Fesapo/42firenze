@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fesapori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/14 17:36:06 by fesapori          #+#    #+#             */
-/*   Updated: 2026/07/16 17:52:04 by fesapori         ###   ########.fr       */
+/*   Created: 2026/07/21 16:13:12 by fesapori          #+#    #+#             */
+/*   Updated: 2026/07/21 16:13:15 by fesapori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+//#include <stdio.h>
 
-void	ft_print_alphabet(void)
+char	*ft_strlowcase(char *str)
 {
-	char	c;
+	int	i;
 
-	c = 'a';
-	while (c <= 'z')
+	i = 0;
+	while (str[i] != '\0')
 	{
-		write(1, &c, 1);
-		c++;
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			str[i] += 32;
+		i++;
 	}
+	return (str);
 }
-
-/*int main()
+/*
+int	main()
 {
-        ft_print_alphabet();
-}*/
+	char	src[] = "Ciao";
+	printf("%s \n", src);
+	ft_strlowcase(src);
+	printf("%s", src);
+}
+*/

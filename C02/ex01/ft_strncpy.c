@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fesapori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/14 17:36:06 by fesapori          #+#    #+#             */
-/*   Updated: 2026/07/16 17:52:04 by fesapori         ###   ########.fr       */
+/*   Created: 2026/07/21 12:40:27 by fesapori          #+#    #+#             */
+/*   Updated: 2026/07/21 12:40:29 by fesapori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+//#include <stdio.h>
 
-void	ft_print_alphabet(void)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	char	c;
+	unsigned int	i;
 
-	c = 'a';
-	while (c <= 'z')
+	i = 0;
+	while (src[i] != '\0' && i < n)
 	{
-		write(1, &c, 1);
-		c++;
+		dest[i] = src[i];
+		i++;
 	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
 }
-
-/*int main()
+/*
+int	main()
 {
-        ft_print_alphabet();
-}*/
+	char	*src = "Ciao";
+	char	dest[100];
+	int	n = 3;
+	printf("%s \n", src);
+	ft_strncpy(dest, src, n);
+	printf("%s", dest);
+}
+*/

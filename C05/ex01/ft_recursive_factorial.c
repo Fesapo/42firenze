@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fesapori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/14 17:36:06 by fesapori          #+#    #+#             */
-/*   Updated: 2026/07/16 17:52:04 by fesapori         ###   ########.fr       */
+/*   Created: 2026/08/04 15:14:28 by fesapori          #+#    #+#             */
+/*   Updated: 2026/08/04 15:17:22 by fesapori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_alphabet(void)
+int	ft_iterative_factorial(int nb)
 {
-	char	c;
+	int	num;
+	int	n;
 
-	c = 'a';
-	while (c <= 'z')
+	n = nb;
+	num = 1;
+	if (nb < 0)
+		return (0);
+	if (nb == 0 || nb == 1)
+		return (1);
+	return (ft_iterative_factorial(--nb) * n);
+}
+
+#include <stdio.h>
+#include <stdlib.h>
+int	main(int ac, char **av)
+{
+	if (ac != 2)
+		printf("variabili sbagliate");
+	else
 	{
-		write(1, &c, 1);
-		c++;
+		int nb = atoi(av[1]);
+		int res = ft_iterative_factorial(nb);
+		printf("%d\n", res);
 	}
 }
 
-/*int main()
-{
-        ft_print_alphabet();
-}*/

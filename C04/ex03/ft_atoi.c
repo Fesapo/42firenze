@@ -1,45 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fesapori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/27 18:37:03 by fesapori          #+#    #+#             */
-/*   Updated: 2026/07/27 18:37:56 by fesapori         ###   ########.fr       */
+/*   Created: 2026/07/30 12:15:22 by fesapori          #+#    #+#             */
+/*   Updated: 2026/07/30 12:22:25 by fesapori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+//#include <stdio.h>
+
+int	ft_atoi(char *str)
 {
-	unsigned int	i;
-	unsigned int	j;
+	int	i;
+	int	sign;
+	int	num;
 
 	i = 0;
-	j = 0;
-	while (dest[i])
+	sign = 1;
+	num = 0;
+	while ((str[i] <= 9 && str[i] >= 13) || str[i] == 32)
 		i++;
-	while (j < nb && src[j] != '\0')
+	while (str[i] == '+' || str[i] == '-')
 	{
-		dest[i + j] = src[j];
-		j++;
+		if (str[i] == '-')
+			sign = sign * -1;
+		i++;
 	}
-	dest[j + i] = '\0';
-	return (dest);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		num = num * 10 + (str[i] - '0');
+		i++;
+	}
+	num = num * sign;
+	return (num);
 }
 /*
-#include <stdio.h>
-#include <stdlib.h>
 int 	main(int argc, char *argv[])
 {
-	if(argc != 4)
-		printf("non ha detto niente");
+	if(argc != 2)
+		printf("Give a string!!\n");
 	else
 	{	
-		printf("%s\n%s\n%s\n", argv[1], argv[2], argv[3]);
-		int	n = atoi(argv[3]);
-		char	*result = ft_strncat(argv[1], argv[2], n);
-		printf("%s\n", result);
+		printf("%s\n", argv[1]);
+		int	n = ft_atoi(argv[1]);
+		printf("%d\n", n);
 	}
 	return 0;
 }

@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fesapori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/14 17:36:06 by fesapori          #+#    #+#             */
-/*   Updated: 2026/07/16 17:52:04 by fesapori         ###   ########.fr       */
+/*   Created: 2026/08/05 16:06:37 by fesapori          #+#    #+#             */
+/*   Updated: 2026/08/05 17:36:39 by fesapori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_alphabet(void)
+int	ft_is_prime(int nb)
 {
-	char	c;
+	int	i;
 
-	c = 'a';
-	while (c <= 'z')
+	i = nb - 1;
+	if (nb < 0 || nb == 0 || nb == 1)
+		return (0);
+	while (i > 1)
 	{
-		write(1, &c, 1);
-		c++;
+		if ((nb % i) == 0)
+			return (0);
+		i--;
+	}
+	return (1);
+}
+/*
+#include <stdio.h>
+#include <stdlib.h>
+int	main(int ac, char **av)
+{
+	if (ac != 2)
+		printf("variabili sbagliate");
+	else
+	{
+		int nb = atoi(av[1]);
+		int res = ft_is_prime(nb);
+		printf("%d\n", res);
 	}
 }
-
-/*int main()
-{
-        ft_print_alphabet();
-}*/
+*/

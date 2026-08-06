@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fesapori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/14 17:36:06 by fesapori          #+#    #+#             */
-/*   Updated: 2026/07/16 17:52:04 by fesapori         ###   ########.fr       */
+/*   Created: 2026/07/21 12:48:59 by fesapori          #+#    #+#             */
+/*   Updated: 2026/07/21 12:49:10 by fesapori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+//#include <stdio.h>
 
-void	ft_print_alphabet(void)
+int	ft_str_is_alpha(char *str)
 {
-	char	c;
-
-	c = 'a';
-	while (c <= 'z')
+	while (*str != 0)
 	{
-		write(1, &c, 1);
-		c++;
+		if ((*str >= 'a' && *str <= 'z') || (*str >= 'A' && *str <= 'Z'))
+			str++;
+		else
+			return (0);
 	}
+	return (1);
 }
-
-/*int main()
+/*
+int	main()
 {
-        ft_print_alphabet();
-}*/
+	char	*src = "Ciao";
+	printf("%s \n", src);
+	int	res = ft_str_is_alpha(src);
+	printf("%d \n", res);
+}
+*/

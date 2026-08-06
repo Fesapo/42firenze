@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fesapori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/14 17:36:06 by fesapori          #+#    #+#             */
-/*   Updated: 2026/07/16 17:52:04 by fesapori         ###   ########.fr       */
+/*   Created: 2026/08/06 18:43:17 by fesapori          #+#    #+#             */
+/*   Updated: 2026/08/06 19:30:05 by fesapori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_print_alphabet(void)
+char	*ft_strcat(char *dest, char *src)
 {
-	char	c;
+	int	i;
+	int	length;
 
-	c = 'a';
-	while (c <= 'z')
+	i = 0;
+	length = 0;
+	while (dest[length] != '\0')
+		length++;
+	while (src[i] != '\0')
 	{
-		write(1, &c, 1);
-		c++;
+		dest[length + i] = src[i];
+		i++;
 	}
+	dest[length + i] = '\0';
+	return (dest);
 }
 
-/*int main()
+char	*ft_strjoin(int size, char **strs, char *sep)
 {
-        ft_print_alphabet();
-}*/
+	char	*str;
+
+	if (size == 0)
+		return (malloc(0));
+	
+}

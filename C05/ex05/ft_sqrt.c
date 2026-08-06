@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fesapori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/14 17:36:06 by fesapori          #+#    #+#             */
-/*   Updated: 2026/07/16 17:52:04 by fesapori         ###   ########.fr       */
+/*   Created: 2026/08/05 13:43:30 by fesapori          #+#    #+#             */
+/*   Updated: 2026/08/05 13:43:34 by fesapori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_alphabet(void)
+int	ft_sqrt(int nb)
 {
-	char	c;
+	int	i;
 
-	c = 'a';
-	while (c <= 'z')
+	i = 0;
+	if (nb < 0)
+		return (0);
+	while (i * i <= nb)
 	{
-		write(1, &c, 1);
-		c++;
+		if (i * i == nb)
+			return (i);
+		i++;
+	}
+	return (0);
+}
+/*
+#include <stdio.h>
+#include <stdlib.h>
+int	main(int ac, char **av)
+{
+	if (ac != 2)
+		printf("variabili sbagliate");
+	else
+	{
+		int nb = atoi(av[1]);
+		int res = ft_sqrt(nb);
+		printf("%d\n", res);
 	}
 }
-
-/*int main()
-{
-        ft_print_alphabet();
-}*/
+*/

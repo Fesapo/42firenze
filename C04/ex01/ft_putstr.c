@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fesapori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/14 17:36:06 by fesapori          #+#    #+#             */
-/*   Updated: 2026/07/16 17:52:04 by fesapori         ###   ########.fr       */
+/*   Created: 2026/07/29 17:47:54 by fesapori          #+#    #+#             */
+/*   Updated: 2026/07/29 17:48:16 by fesapori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include <stdio.h>
 #include <unistd.h>
 
-void	ft_print_alphabet(void)
+void	ft_putstr(char *str)
 {
-	char	c;
-
-	c = 'a';
-	while (c <= 'z')
+	while (*str != 0)
 	{
-		write(1, &c, 1);
-		c++;
+		write(1, str, 1);
+		str++;
 	}
 }
-
-/*int main()
+/*
+int	main(int ac, char **av)
 {
-        ft_print_alphabet();
-}*/
+	if(ac != 2)
+		printf("quantitá sbagliata di variabile");
+	else
+	{
+		char	*src = av[1];
+		printf("%s \n", src);
+		ft_putstr(src);
+		printf("\n");
+	}
+}
+*/
